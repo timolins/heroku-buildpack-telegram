@@ -1,2 +1,2 @@
 # heroku-buildpack-telegram
-Buildpack for the Telegram Messenger
+Buildpack for the Telegram CLI
