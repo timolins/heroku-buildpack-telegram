@@ -1,0 +1,30 @@
+#!/bin/sh
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+echo "-----> Install telegram"
+BUILD_DIR=$1
+VENDOR_DIR="vendor"
+DOWNLOAD_URL="http://github.com/vysheng/tg/archive/master.tar.gz"
+
+echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
+
+cd $BUILD_DIR
+mkdir -p $VENDOR_DIR
+cd $VENDOR_DIR
+curl -L --silent $DOWNLOAD_URL | tar xz
+
+echo "Build telegram-cli" | indent
+cd td
+./configure
+make
+
+
+#echo "exporting PATH and LIBRARY_PATH" | indent
+#PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
+#mkdir -p $(dirname $PROFILE_PATH)
+#echo ''
+#echo 'export PATH="$PATH:$HOME/vendor/ffmpeg/bin"' >> $PROFILE_PATH
+#echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/ffmpeg/lib"' >> $PROFILE_PATH
