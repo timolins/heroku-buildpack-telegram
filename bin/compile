@@ -17,6 +17,7 @@ cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
 
 echo "Build telegram-cli" | indent
+ls
 cd td
 ./configure
 make
