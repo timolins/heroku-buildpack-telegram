@@ -4,9 +4,14 @@ indent() {
   sed -u 's/^/       /'
 }
 
-echo "-----> Install telegram"
+
 BUILD_DIR=$1
+CACHE_DIR=$2
+
 VENDOR_DIR="vendor"
+
+echo "-----> Install telegram"
+
 DOWNLOAD_URL="http://github.com/vysheng/tg/archive/1.0.5.1.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
@@ -26,9 +31,9 @@ cd bin
 ls
 ./telegram-cli
 
-#echo "exporting PATH and LIBRARY_PATH" | indent
-#PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
-#mkdir -p $(dirname $PROFILE_PATH)
-#echo ''
-#echo 'export PATH="$PATH:$HOME/vendor/ffmpeg/bin"' >> $PROFILE_PATH
-#echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/ffmpeg/lib"' >> $PROFILE_PATH
+echo "exporting PATH and LIBRARY_PATH" | indent
+PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli"
+mkdir -p $(dirname $PROFILE_PATH)
+echo ''
+echo 'export PATH="$PATH:$HOME/vendor/tg-1.0.5.1/bin"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/tg-1.0.5.1/bin"' >> $PROFILE_PATH
