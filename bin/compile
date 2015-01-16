@@ -24,7 +24,7 @@ echo "Make telegram-cli" | indent
 make
 cd bin
 ls
-telegram-cli
+#./telegram-cli
 
 #echo "exporting PATH and LIBRARY_PATH" | indent
 #PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
