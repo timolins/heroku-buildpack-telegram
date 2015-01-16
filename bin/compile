@@ -27,12 +27,13 @@ echo "Configure telegram-cli" | indent
 ./configure --disable-liblua
 echo "Make telegram-cli" | indent
 make
-cd bin
-ls
-./telegram-cli
+
+# cd bin
+# ls
+# ./telegram-cli
 
 echo "exporting PATH and LIBRARY_PATH" | indent
-PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli"
+PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo ''
 echo 'export PATH="$PATH:$HOME/vendor/tg-1.0.5.1/bin"' >> $PROFILE_PATH
