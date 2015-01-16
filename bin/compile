@@ -7,7 +7,7 @@ indent() {
 echo "-----> Install telegram"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
-DOWNLOAD_URL="http://github.com/vysheng/tg/archive/master.tar.gz"
+DOWNLOAD_URL="http://github.com/vysheng/tg/archive/1.0.5.1.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
@@ -17,7 +17,7 @@ cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
 
 echo "Build telegram-cli" | indent
-cd tg-master
+cd tg-1.0.5.1
 echo "Configure telegram-cli" | indent
 ./configure --disable-liblua
 echo "Make telegram-cli" | indent
