@@ -22,7 +22,9 @@ echo "Configure telegram-cli" | indent
 ./configure --disable-liblua
 echo "Make telegram-cli" | indent
 make
-
+cd bin
+ls
+telegram-cli
 
 #echo "exporting PATH and LIBRARY_PATH" | indent
 #PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
