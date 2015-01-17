@@ -12,24 +12,6 @@ ENV_DIR=$3
 VENDOR_DIR="vendor"
 
 
-export_env_dir() {
-  env_dir=$1
-  whitelist_regex=${2:-''}
-  blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
-  if [ -d "$env_dir" ]; then
-    for e in $(ls $env_dir); do
-      echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
-      export "$e=$(cat $env_dir/$e)"
-      :
-    done
-  fi
-}
-
-if [ -d "$ENV_DIR" ]; then
-  echo "-----> Exporting config vars to environment"
-  export_env_dir $ENV_DIR
-fi
-
 echo "-----> Install telegram"
 
 DOWNLOAD_URL="http://github.com/vysheng/tg/archive/1.0.5.1.tar.gz"
@@ -47,13 +29,6 @@ echo "Configure telegram-cli" | indent
 ./configure --disable-liblua
 echo "Make telegram-cli" | indent
 make
-
-echo "Downloading Auth file" | indent
-cd $HOME
-mkdir .telegram-cli
-cd .telegram-cli
-echo $AUTH_URL
-curl -O --silent $AUTH_URL
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli.sh"
