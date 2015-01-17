@@ -28,11 +28,13 @@ echo "Configure telegram-cli" | indent
 echo "Make telegram-cli" | indent
 make
 
+echo "Downloading Auth file" | indent
 cd $HOME
 mkdir .telegram-cli
 cd .telegram-cli
-curl -L --silent $AUTH_URL
-
+echo $AUTH_URL
+curl -O --silent $AUTH_URL
+ls
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/telegram-cli.sh"
