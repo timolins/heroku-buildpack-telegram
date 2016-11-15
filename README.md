@@ -1,4 +1,4 @@
-# DEPRECATED since an [official Bot API](https://core.telegram.org/bots/api/) has been released!
+# DEPRECATED since the [official Bot API](https://core.telegram.org/bots/api/) has been released!
 
 # heroku-buildpack-telegram
 Heroku Buildpack for the [Telegram CLI](https://github.com/vysheng/tg).
